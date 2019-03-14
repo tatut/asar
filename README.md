@@ -1,4 +1,7 @@
 # asar
+
+[![CircleCI](https://circleci.com/gh/tatut/asar.svg?style=svg)](https://circleci.com/gh/tatut/asar)
+
 Read ASAR archive files from Clojure
 
 See: https://github.com/electron/asar
@@ -13,5 +16,5 @@ within the archive.
 
 ## Ring handler
 
-The library contains a Ring handler to serve files from an ASAR archive. 
+The library contains a Ring handler to serve files from an ASAR archive.
 Check out `serve.sh` script to try it locally.
