@@ -1,6 +1,6 @@
 # asar
 
-[![CircleCI](https://circleci.com/gh/tatut/asar.svg?style=svg)](https://circleci.com/gh/tatut/asar)
+[![CircleCI](https://circleci.com/gh/tatut/asar.svg?style=svg)](https://circleci.com/gh/tatut/asar) [![Clojars Project](https://img.shields.io/clojars/v/webjure/asar.svg)](https://clojars.org/webjure/asar)
 
 Read ASAR archive files from Clojure
 
