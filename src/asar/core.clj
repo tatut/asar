@@ -8,7 +8,10 @@
 
 (set! *warn-on-reflection* true)
 
-(defrecord ASAR [file header offset])
+(defrecord ASAR [file header offset]
+  java.lang.AutoCloseable
+  (close [_]
+    (.close ^RandomAccessFile file)))
 
 (defn- little-endian->big-endian [num]
   (bit-or (bit-and (bit-shift-right num 24) 0xff)

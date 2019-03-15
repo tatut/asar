@@ -2,7 +2,7 @@
   (:require [asar.core :as sut]
             [clojure.test :as t :refer [deftest testing is]]
             [clojure.string :as str])
-  (:import (java.io File)
+  (:import (java.io File IOException)
            (java.security MessageDigest)))
 
 (defn digest [^bytes data]
@@ -28,3 +28,12 @@
         (is (= 225 (:size (sut/file-info asar "pics/smile.png"))))
         (is (= "6e2e560055b8460fc74e14f33aa87c34"
                (digest (sut/read-file asar "pics/smile.png"))))))))
+
+(deftest test-auto-close
+  (let [asar (sut/load-asar (File. "test/test.asar"))]
+    (with-open [a asar]
+      (is (= "small file\n" (String. (sut/read-file a "foo.txt") "UTF-8"))))
+
+    (testing "Read after close should throw"
+      (is (thrown? IOException
+                   (sut/read-file asar "foo.txt"))))))
